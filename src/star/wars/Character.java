@@ -16,7 +16,7 @@ public class Character {
     //Fields (Variables)
     private int x;
     private int y;
-    private int dx;
+    private int dx; 
     private int dy;
     private Color color;
     private int size;
@@ -111,14 +111,14 @@ public class Character {
     
     public void update() {
         move(dx, dy);
-        grow();
+        
     }
      /**
      * Makes the character "bounce" and reverse direction on X axis 
      */
     public void reserseX(){
-        dx *= -100;
-            //TODO Implement this method
+        //TODO Implement this method
+        
     }
     
     /**
@@ -126,7 +126,7 @@ public class Character {
      */
     public void reserveY(){
         //TODO Implement this method
-        dy *= -100;
+        
     }
     
     //Private Methods
@@ -134,6 +134,14 @@ public class Character {
         
        //size = ( (int) (Math.random()*10) - 4);
         size *= 1.05;
+    }
+
+    public void reverseY() {
+       
+    }
+
+    public void reverseX() {
+        
     }
 
 }

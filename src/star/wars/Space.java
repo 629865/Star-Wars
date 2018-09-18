@@ -52,6 +52,8 @@ public class Space extends JPanel {
     
         @Override
         public void run() {
+            wallCollisions(hero);
+            wallCollisions(enemy);
             hero.update();
             enemy.update();
             repaint();
@@ -60,16 +62,16 @@ public class Space extends JPanel {
     
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-            hero.setDX(2);
+            hero.setDX(4);
         }
         else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-            hero.setDX(-2);
+            hero.setDX(-4);
         }
         else if (e.getKeyCode() == KeyEvent.VK_UP) {
-            hero.setDY(-2);
+            hero.setDY(-4);
         }
         else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-            hero.setDY(2);
+            hero.setDY(4);
         }
     }
     
@@ -105,7 +107,15 @@ public class Space extends JPanel {
         }
     }
     
-private void wallCollisions() {
+private void wallCollisions (Character c) {
+    //walls = this.getWidth(), this.getHeight(), 0
+    //where the hero is = hero.getX(), hero.getY()
+    if (c.getX() <= 0 || c.getX() + 20 >= this.getWidth() ) {
+        c.reverseX();
+    }
+    if (c.getY() <= 0 || c.getY() + 20 >= this.getHeight() ) {
+        c.reverseY();
+    }
 //TODO Implement this method
 
 }
